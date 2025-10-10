@@ -56,3 +56,4 @@ dealSchema.index({ brand: 1, isActive: 1 });
 dealSchema.index({ startDate: 1, endDate: 1 });
 
 module.exports = mongoose.model('Deal', dealSchema);
+

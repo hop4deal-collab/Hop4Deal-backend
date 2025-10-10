@@ -35,3 +35,4 @@ router.put('/:id', authMiddleware, privilegeMiddleware('blogs'), updateBlog);
 router.delete('/:id', authMiddleware, roleMiddleware(['admin']), deleteBlog);
 
 module.exports = router;
+

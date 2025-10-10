@@ -35,3 +35,4 @@ router.put('/:id', authMiddleware, privilegeMiddleware('categories'), updateCate
 router.delete('/:id', authMiddleware, roleMiddleware(['admin']), deleteCategory);
 
 module.exports = router;
+

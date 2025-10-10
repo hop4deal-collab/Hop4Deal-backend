@@ -35,3 +35,4 @@ router.put('/:id', authMiddleware, roleMiddleware(['admin']), updateUser);
 router.delete('/:id', authMiddleware, roleMiddleware(['admin']), deleteUser);
 
 module.exports = router;
+

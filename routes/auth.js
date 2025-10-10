@@ -14,3 +14,4 @@ router.post('/login', login);
 router.get('/profile', authMiddleware, getProfile);
 
 module.exports = router;
+

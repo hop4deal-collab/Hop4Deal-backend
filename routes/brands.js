@@ -35,3 +35,4 @@ router.put('/:id', authMiddleware, privilegeMiddleware('brands'), updateBrand);
 router.delete('/:id', authMiddleware, roleMiddleware(['admin']), deleteBrand);
 
 module.exports = router;
+
