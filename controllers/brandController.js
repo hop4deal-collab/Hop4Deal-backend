@@ -34,8 +34,11 @@ const getBrandById = async (req, res) => {
 
 const createBrand = async (req, res) => {
   try {
-    const { name, description, logo, tagline, category } = req.body;
-
+    const { name, description, tagline, category } = req.body;
+    let logo = '';
+    if (req.file) {
+      logo = `/uploads/${req.file.filename}`;
+    }
     const brand = new Brand({
       name,
       description,
@@ -63,11 +66,15 @@ const createBrand = async (req, res) => {
 
 const updateBrand = async (req, res) => {
   try {
-    const { name, description, logo, tagline, category, isActive } = req.body;
-    
+    const { name, description, tagline, category, isActive } = req.body;
+    console.log('[UPDATE BRAND] Uploaded file:', req.file);
     const brand = await Brand.findById(req.params.id);
     if (!brand) {
       return res.status(404).json({ message: 'Brand not found' });
+    }
+    let logo = '';
+    if (req.file) {
+      logo = `/uploads/${req.file.filename}`;
     }
 
     if (name) brand.name = name;

@@ -56,6 +56,8 @@ const createDeal = async (req, res) => {
       startDate,
       endDate,
       code,
+      link,
+      type,
       description,
       percentOff,
       isHot: isHot || false,
@@ -81,7 +83,7 @@ const createDeal = async (req, res) => {
 
 const updateDeal = async (req, res) => {
   try {
-    const { brand, startDate, endDate, code, description, percentOff, isHot, isActive } = req.body;
+    const {link,type, brand, startDate, endDate, code, description, percentOff, isHot, isActive } = req.body;
     
     const deal = await Deal.findById(req.params.id);
     if (!deal) {
@@ -89,6 +91,8 @@ const updateDeal = async (req, res) => {
     }
 
     if (brand) deal.brand = brand;
+    if (link) deal.link = link;
+    if (type) deal.type = type;
     if (startDate) deal.startDate = startDate;
     if (endDate) deal.endDate = endDate;
     if (code) deal.code = code;

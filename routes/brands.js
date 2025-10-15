@@ -8,6 +8,8 @@ const {
   deleteBrand 
 } = require('../controllers/brandController');
 const { authMiddleware, roleMiddleware, privilegeMiddleware } = require('../middleware/auth');
+const upload = require('../middleware/upload');
+
 
 // @route   GET /api/brands
 // @desc    Get all brands
@@ -22,12 +24,12 @@ router.get('/:id', getBrandById);
 // @route   POST /api/brands
 // @desc    Create brand
 // @access  Admin or Data Entry with brands privilege
-router.post('/', authMiddleware, privilegeMiddleware('brands'), createBrand);
+router.post('/',upload.single('logo'), authMiddleware, privilegeMiddleware('brands'), createBrand);
 
 // @route   PUT /api/brands/:id
 // @desc    Update brand
 // @access  Admin or Data Entry with brands privilege
-router.put('/:id', authMiddleware, privilegeMiddleware('brands'), updateBrand);
+router.put('/:id',upload.single('logo'), authMiddleware, privilegeMiddleware('brands'), updateBrand);
 
 // @route   DELETE /api/brands/:id
 // @desc    Delete brand

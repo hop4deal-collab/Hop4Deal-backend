@@ -7,28 +7,29 @@ const dealSchema = new mongoose.Schema({
     required: true
   },
   startDate: {
-    type: Date,
-    required: true
+    type: Date
   },
   endDate: {
-    type: Date,
-    required: true
+    type: Date
   },
   code: {
     type: String,
+    trim: true
+  },
+   link: {
+    type: String,
     required: true,
-    unique: true,
+    trim: true
+  },
+   type: {
+    type: String,
     trim: true
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   percentOff: {
-    type: Number,
-    required: true,
-    min: 0,
-    max: 100
+    type: Number
   },
   isActive: {
     type: Boolean,
