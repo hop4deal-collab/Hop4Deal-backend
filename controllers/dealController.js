@@ -49,7 +49,7 @@ const getDealById = async (req, res) => {
 
 const createDeal = async (req, res) => {
   try {
-    const { brand, startDate, endDate, code, description, percentOff, isHot } = req.body;
+    const { brand, startDate, endDate, code, description, percentOff, isHot,link,type } = req.body;
 
     const deal = new Deal({
       brand,
