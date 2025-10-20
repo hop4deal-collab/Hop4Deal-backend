@@ -6,7 +6,7 @@ const getAllBrands = async (req, res) => {
       .populate('category', 'name')
       .populate('createdBy', 'email')
       .populate('updatedBy', 'email')
-      .sort({ name: 1 });
+      .sort({ updatedAt: -1 });
     
     res.json(brands);
   } catch (error) {

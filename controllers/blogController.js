@@ -12,7 +12,7 @@ const getAllBlogs = async (req, res) => {
     const blogs = await Blog.find(filter)
       .populate('createdBy', 'email')
       .populate('updatedBy', 'email')
-      .sort({ createdAt: -1 });
+      .sort({ updatedAt: -1 });
     
     res.json(blogs);
   } catch (error) {

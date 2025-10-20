@@ -5,7 +5,7 @@ const getAllCategories = async (req, res) => {
     const categories = await Category.find({ isActive: true })
       .populate('createdBy', 'email')
       .populate('updatedBy', 'email')
-      .sort({ name: 1 });
+      .sort({ updatedAt: -1 });
     
     res.json(categories);
   } catch (error) {

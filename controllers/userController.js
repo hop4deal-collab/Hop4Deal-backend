@@ -6,7 +6,7 @@ const getAllUsers = async (req, res) => {
       .select('-password')
       .populate('createdBy', 'email')
       .populate('updatedBy', 'email')
-      .sort({ createdAt: -1 });
+      .sort({ updatedAt: -1 });
     
     res.json(users);
   } catch (error) {

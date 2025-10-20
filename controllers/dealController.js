@@ -20,7 +20,7 @@ const getAllDeals = async (req, res) => {
       .populate('brand.category', 'name')
       .populate('createdBy', 'email')
       .populate('updatedBy', 'email')
-      .sort({ createdAt: -1 });
+      .sort({ updatedAt: -1 });
     
     res.json(deals);
   } catch (error) {
