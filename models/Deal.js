@@ -6,6 +6,9 @@ const dealSchema = new mongoose.Schema({
     ref: 'Brand',
     required: true
   },
+  season: {
+    type: mongoose.Schema.Types.ObjectId
+  },
   startDate: {
     type: Date
   },
